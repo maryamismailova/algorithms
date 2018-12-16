@@ -35,12 +35,7 @@ dijkstra *initializeDijkstra( const char *inputfile){
 
   dj->predecessor=calloc(dj->nbvertices, sizeof(int));
   for(int i=0; i<<dj->nbvertices;i++)dj->predecessor[i]=-1;
-  // for(int i=0;i<dj->nbvertices;i++){
-  //   for(int k=0;k<dj->nbvertices;k++){
-  //     printf("%d ", dj->weights[i][k]);
-  //   }
-  //   puts("");
-  // }
+
   return dj;
 }
 int findDistance(dijkstra *dj){
@@ -57,8 +52,6 @@ int findDistance(dijkstra *dj){
     //update distances
     for(int i=0;i<dj->nbvertices;i++){
       if(visited[i]!=0 && dj->weights[i][current]!=-1){//point is not visited and it can be visited
-        // printf("distance from %d to %d is %d\n", current, i, dj.distances[current]+dj.weights[i][current]);
-        // printf("distance to %d is %d\n", i, dj.distances[i]);
         if(dj->distances[current]+dj->weights[i][current]<dj->distances[i]){
           dj->distances[i]=dj->distances[current]+dj->weights[i][current];
           dj->predecessor[i]=current;
@@ -75,8 +68,6 @@ int findDistance(dijkstra *dj){
     }
     visited[current]=0;
   }
-  // for(int i=0; i<dj->nbvertices;i++)printf("%d ",dj->distances[i] );
-  // printf("\n");
   return dj->distances[dj->d]==INFINITY ? -1:dj->distances[dj->d];
 }
 
@@ -90,11 +81,5 @@ int *findPath(dijkstra *dj){
     current=dj->predecessor[current];
   }
   path[nPathIndex]=current;
-  // for(int i=dj->nbvertices-1;i>=0;i--){
-  //   // printf("i am here\n");
-  //   if(path[i]==-1)continue;
-  //   printf("%d->",path[i]);
-  // }
-  // printf("hey\n");
   return path;
 }
