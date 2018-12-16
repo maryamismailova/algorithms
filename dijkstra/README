@@ -1,0 +1,18 @@
+C implementation of Dijkstra algorithm
+
+The input for the program should be text file of format:
+    "nb s d
+    c1 c2 c2...
+    ....
+    ...
+    ..           "
+where nb is number of points, s is starting point, d is destination
+from the next line it must be a matrix of costs
+
+compile & run the program using makefile
+--> make
+To compile the program
+-->make exec  
+
+returns distance and best path to the destination point
+
